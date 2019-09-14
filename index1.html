@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expand - details</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+	    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+
+
+	    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+			    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+	<!-- fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="assets/ext/fbox.js"></script>
+	<script type="text/javascript" src="assets/ext/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/ext/jquery.fancybox.css" media="screen" />
+	<!--  -->
+	
+		 <link rel="stylesheet" href="assets/ext/customcb.css">
+		     <script src="assets/js/vue.js"></script>
+</head>
+
+<body  oncontextmenu="return false;">
+    <div>
+        <div class="header-blue">
+		
+            <nav class="navbar navbar-dark navbar-expand sticky-top navigation-clean-search" style="background-color:rgba(0,0,0,0.9);">
+                <div class="container"><a class="navbar-brand text-capitalize text-white"> Markeit &nbsp;<i class="fa fa-check-circle"> </i> </a> 
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1"></div>
+        </div>
+        </nav>
+		
+        <div class="container-fluid hero" style="font-family: segoe ui medium; background:linear-gradient(135deg, #172a74, #21a9af);" ><br>
+		<form method="post">
+		
+		<div class="text-light">
+		<li>Click on the product name for edit and add to list.</li>
+		<li>Click on the product image to view full size.</li>
+		<li> The product name is displayed in preview as : Above - English name  |  below - Marathi name</li>
+		<li> The product name is displayed in details as : <u>English</u> name  •  <u>Marathi</u> name ( Marathi transliteration )  •  other language name ( mostly <u>Hindi</u> or any transliteration)</li>
+		</div><hr>
+		
+		<div class="form-row " id="vegetables">
+				
+					<!--repeat on -->
+				<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" v-for="prod in vegdata" style="padding: 2px;">
+				<details  style="background: white; padding: 5px" >
+  <summary  style="background: linear-gradient(90deg, rgba(240,220,220,0.5) 0%, rgba(200,255,200,0.5) 100%);"  >
+      <table class="table table-responsive table-sm" style="margin:-20px 10px;">
+        <tbody>
+            <tr align="left" >	
+			<td rowspan="2" ><a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  ><img v-img :src="prod.imgurl" class="align-content-center align-self-center mr-3" width="80px" /></a></td>	
+			<td ><b> {{ prod.ven }} </b></td>		</tr>
+            <tr align="left">	<td > <b> {{ prod.vmn }} </b></td>		</tr>
+        </tbody>	
+    </table> 
+	<h5 style="float: right" data-bs-hover-animate="flash"> <i class="fa fa-edit"> </i> </h5><br>
+
+	
+  </summary>
+
+  
+  <p> 													<li style="list-style-type:none" >
+
+  					
+													<div class="form-row " id="copythis"  style=" padding: 1px ;">
+								<div class="col-11" >
+								<h6> 
+										<span class="text-primary">   {{ prod.ven }} </span> •  <span class="text-dark"> {{ prod.vmn }} </span> 
+										<span class="text-success">   {{ prod.vmtn }}  </span> • <span class="text-info">  {{ prod.von }}     </span> 
+										</h6>										
+								<div class="media" >
+								<a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  draggable="false" > <img v-img :src="prod.imgurl" class="align-content-center align-self-center mr-3" draggable="false" width="80px" /></a> 
+                                    <div class="media-body">
+                                            <table class="table table-bordered table-striped table-sm">
+											<tbody >
+													<tr>
+                                                         <td  width="20%" style="border:1px solid ghostwhite" > <input type="number" min="0" max="1000" ></td>
+                                                        <td width="35%" style="border:1px solid ghostwhite">
+																<input list="wt" class="form-control form-control-sm" placeholder=" Scale ">
+																<datalist  name="wt" id="wt" >
+																	<option value="units">Unit(s) </option> <option value="Kg">Kg (किलोग्रॅम)</option>
+																	<option value="gm">gm (ग्रॅम)</option><option value="L">L (लीटर)</option>
+																	<option value="ml">ml (मिली)</option><option value="Dozen">Dozen (डझन)</option>
+																</datalist>
+														</td>
+														<td width="45%"contenteditable style="border:1px solid white" ></td>
+                                                    </tr>
+													</tbody>
+                                            </table>
+										
+										</div> </div>	</div>
+									
+								<div class="col-1" align="center" ><br>
+										<label class="label--checkbox"> <input type="checkbox" class="checkbox vegcopy" ></label>
+								</div>
+							</div>
+								</li>
+  </p>
+</details>	
+</div>
+							<!--repeat off -->
+
+
+				
+        </div>
+        </form>
+			<br><hr><br>	
+					
+	
+	<h5 class="text-light"> Added products : </h5>	<hr color="gray">
+    <div class="form-row col-12" style="padding: 1px; background: white" >
+	
+	   <div class=" col-md-6 col-sm-12 veg-table" >
+	   <b class="text-dark">Vegetables </b><hr>
+	   </div>
+	
+	   <div class="col-md-6 col-sm-12 frt-table" >
+	   <b class="text-dark">Fruits </b><hr>
+	   </div>
+	
+	</div>
+	<hr>
+	<br>
+	
+    </div>
+    </div>
+    </div>
+	
+		    <script src="assets/js/vegdata_1.js"></script>	
+
+</body>
+
+</html>

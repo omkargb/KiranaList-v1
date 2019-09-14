@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open list</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+	    <script src="assets/js/jquery.min.js"></script>
+		    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		
+	<!-- fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="assets/ext/fbox.js"></script>
+	<script type="text/javascript" src="assets/ext/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/ext/jquery.fancybox.css" media="screen" />
+	<!--  -->
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+		 <link rel="stylesheet" href="assets/ext/customcb.css">
+		     <script src="assets/js/vue.js"></script>
+</head>
+
+<body style="font-family: Nunito; background: linear-gradient(90deg, rgba(240,200,220,0.5) 0%, rgba(200,255,200,0.5) 100%);"  oncontextmenu="return false;">
+    <div>
+        <div class="header-blue">
+            <nav class="navbar navbar-dark navbar-expand sticky-top navigation-clean-search" style="background-color:rgba(0,0,0,0.8);">
+                <div class="container"><a class="navbar-brand text-capitalize text-white">KiranaList</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+
+        </div>
+        </nav>
+		
+        <div class="container-fluid hero">
+	<br>
+	<h6 class="text-dark">Note :
+	<ul> <li> Click on the English name to view details and add. </li>
+	<li> Click on the photo to view large image. </li>
+	</ul>
+	<hr></h6>
+
+			<h3 class="text-primary">Vegetables</h3> <hr color="gray">
+    <div class="form-row " id="vegetables">
+
+    
+	
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding: 1px;"  v-for="prod in vegdata">
+		<!-- button start -->
+        		<li type="none">
+				<a class="btn btn-outline-light btn-block"  >
+						    <table class="table table-bordered  table-sm" style="margin:-5px; padding-left:0px;">
+        <tbody>
+
+	<div class="form-row " id="copythis">	
+							<tr colspan="3">
+								<td>
+								<a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn" > 
+											<img v-img :src="prod.imgurl" class=" mr-3" draggable="false" width="80px" /></a>
+								</td>
+							
+								<td colspan="2">
+										<h6>
+								<span class="text-primary">{{ prod.ven }}</span> <br><br> <span class="text-dark">{{ prod.vmn }}</span>
+										</h6>
+								</td>
+								
+								<td>
+									<h6>		<span class="text-success">{{ prod.vmtn }}</span> <br><br> <span class="text-danger">{{ prod.von }}</span></h6>
+								</td>
+							</tr>
+
+													<tr>
+                                                         <td  width="25%" > <input type="number" class="form-control form-control-sm"  min="0" max="1000" ></td>
+                                                        <td width="30%" >
+																<input list="wt" class="form-control form-control-sm" placeholder=" Scale ">
+																<datalist  name="wt" id="wt" >
+																	<option value="units">Unit(s) </option> <option value="Kg">Kg (किलोग्रॅम)</option>
+																	<option value="gm">gm (ग्रॅम)</option><option value="L">L (लीटर)</option>
+																	<option value="ml">ml (मिली)</option><option value="Dozen">Dozen (डझन)</option>
+																</datalist>
+														</td>
+														<td width="40%" contenteditable ></td>
+														<td width="5%"><h6></h6>
+																<label class="label--checkbox" > <input type="checkbox"  class="checkbox vegcopy" ></label></h5>
+														</td>
+                                                    </tr>									
+	</div>
+			</tbody>		
+					</table>
+							</a>
+							</li>
+
+
+
+				<!-- button end-->
+						
+				</div>
+
+			</div>
+
+	
+	<hr>
+	
+
+	<hr>
+	
+	
+	<h5 class="text-primary"> Added products : </h5>	<hr color="gray">
+    <div class="form-row col-12" style="padding: 1px;" >
+	
+	   <div class=" col-md-6 col-sm-12 veg-table" >
+	   <b>Vegetables </b><hr></div>
+	
+	   <div class="col-md-6 col-sm-12 veg-table" >
+	   <b>Fruits </b><hr></div>
+	</div>
+	<hr>
+	
+	
+		    <script src="assets/js/vegdata_1.js"></script>	
+
+</body>
+
+
+
+
+</html>
