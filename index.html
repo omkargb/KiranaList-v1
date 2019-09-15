@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>expand - details</title>
+    <title>Markeit V1</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 	    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -13,6 +13,8 @@
 	    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 			    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+				<link href="https://fonts.googleapis.com/css?family=Mukta&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cambay&display=swap&subset=devanagari" rel="stylesheet">
 
 	<!-- fancyBox main JS and CSS files -->
 	<script type="text/javascript" src="assets/ext/fbox.js"></script>
@@ -35,12 +37,15 @@
         </div>
         </nav>
 		
-        <div class="container-fluid hero" style="font-family: segoe ui medium; background:linear-gradient(135deg, #172a74, #21a9af);" ><br>
+        <div class="container-fluid hero" style="font-family: segoe ui medium ; background:linear-gradient(135deg, #172a74, #21a9af);" ><br>
+		
 		<form method="post">
 		
 		<div class="text-light">
 		<li>Click on the product name for edit and add to list.</li>
 		<li>Click on the product image to view full size.</li>
+		<li><i class="fa fa-sort-numeric-asc"></i>&nbsp; indicates Type <strong>quantity</strong> in numbers.&nbsp;</li>
+		<li><i class="fa fa-balance-scale"></i>&nbsp;&nbsp;indicates Select correct scale/<strong>unit</strong> from a dropdown list .</li>
 		<li> The product name is displayed in preview as : Above - English name  |  below - Marathi name</li>
 		<li> The product name is displayed in details as : <u>English</u> name  •  <u>Marathi</u> name ( Marathi transliteration )  •  other language name ( mostly <u>Hindi</u> or any transliteration)</li>
 		</div><hr>
@@ -55,7 +60,7 @@
       <table class="table table-responsive table-sm" style="margin:-20px 10px;">
         <tbody>
             <tr align="left" >	
-			<td rowspan="2" ><a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  ><img v-img :src="prod.imgurl" class="align-content-center align-self-center mr-3" width="80px" /></a></td>	
+			<td rowspan="2" ><a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  ><img v-img :src="prod.imgurl" class="img" width="80px" /></a></td>	
 			<td ><b> {{ prod.ven }} </b></td>		</tr>
             <tr align="left">	<td > <b> {{ prod.vmn }} </b></td>		</tr>
         </tbody>	
@@ -73,22 +78,23 @@
 										<span class="text-primary">   {{ prod.ven }} </span> •  <span class="text-dark"> {{ prod.vmn }} </span> 
 										<span class="text-success">   {{ prod.vmtn }}  </span> • <span class="text-info">  {{ prod.von }}     </span> 
 										</h6>										
-                                            <table class="table table-bordered table-striped table-sm">
+                                            <table class="table table-bordered table-sm">
 											<tbody >
 													<tr>
-                                                         <td  width="5%" style="border:1px solid ghostwhite" > <img v-img :src="prod.imgurl" draggable="false" width="50px" />
+                                                         <td  width="5%" style="border:1px solid lightgray" > <img v-img :src="prod.imgurl" draggable="false" width="55px" />
 														 </td>
-                                                         <td  width="15%" style="border:1px solid ghostwhite" > <input type="number" min="0" max="1000" ></td>
-                                                        <td width="35%" style="border:1px solid ghostwhite">
-																<input list="wt" class="form-control form-control-sm" placeholder=" Scale ">
+                                                         <td  width="15%" style="border:1px solid lightgray" > <input type="number" min="0" max="1000" placeholder="Num"></td>
+                                                        <td width="35%" style="border:1px solid lightgray">
+																<input list="wt" class="form-control form-control-sm" placeholder="Scale">
 																<datalist  name="wt" id="wt" >
-																	<option value="units">Unit(s) </option> <option value="Kg">Kg (किलोग्रॅम)</option>
+																	<option value="Units">Unit(s) </option> <option value="Kg">Kg (किलोग्रॅम)</option>
 																	<option value="gm">gm (ग्रॅम)</option><option value="L">L (लीटर)</option>
 																	<option value="ml">ml (मिली)</option><option value="Dozen">Dozen (डझन)</option>
 																</datalist>
 														</td>
-														<td width="40%" contenteditable style="border:1px solid white" ></td>
-														<td  width="5%"><label class="label--checkbox"><input type="checkbox" class="checkbox vegcopy" > </label></td>
+														<td width="40%" contenteditable style="border:1px solid lightgray" ></td>
+														<td  width="5%">
+														<label class="label--checkbox"> <input type="checkbox" class="checkbox vegcopy" > </label> </td>
                                                     </tr>
 													</tbody>
                                             </table>
