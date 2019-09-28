@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markeit V1</title>
+    <title>KiranaList v1</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 	    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -31,7 +31,7 @@
         <div class="header-blue">
 		
             <nav class="navbar navbar-dark navbar-expand sticky-top navigation-clean-search" style="background-color:rgba(0,0,0,0.9);">
-                <div class="container-fluid"> <a class="navbar-brand text-capitalize text-white"> <i class="fa fa-check-circle"> </i>&nbsp; Markeit </a> 
+                <div class="container-fluid"> <a class="navbar-brand text-capitalize text-white"> <i class="fa fa-check-circle"> </i>&nbsp;  KiranaList </a> 
 				<button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1"></div>
         </div>
@@ -42,11 +42,23 @@
 		<form method="post">
 		
 		<div class="text-light">
-		<li>Click on the product image to view full size.</li>
-		<li>Click on the product name for edit and add to list.</li>
-		<li> The product name is displayed in preview as : Above - English name  /  below - Marathi name</li>
-		<li> The product name is displayed in details as : <u>English</u> name  •  <u>Marathi</u> name ( Marathi transliteration )  •  other language name ( mostly <u>Hindi</u> or any transliteration)</li>
-		<li> Add the product details as : <u>Quantity</u> in numbers  |  Select correct Scale/<u>Unit</u> from a dropdown list  |  Extra information (if required) like color, packing type, etc. available in your area. </li>
+		<h5> Things to note : English</h5>
+		<li>Click on the product image to view full size. </li>
+		<li>Click on the product name for edit and add to list.
+		</li>
+		<li> The product name is displayed in preview as : Above - English name  /  below - Marathi name 
+		</li>
+		<li> The product name is displayed in details as : <u>English</u> name  •  <u>Marathi</u> name ( Marathi transliteration )  •  other language name ( mostly <u>Hindi</u> or any transliteration) <br>
+		</li>
+		<li> Add the product details as : <u>Quantity</u> in numbers  |  Select correct Scale/<u>Unit</u> from a dropdown list  |  Extra information (if required) like color, packing type, etc. available in your area. <br>
+		   </li><hr>
+		   
+		<h5> Things to note : मराठी</h5>
+				<li>वस्तुचे मोठे चित्र पाहण्याकरता वस्तुच्या लहान चित्रावर क्लिक करा. </li>
+						<li> वस्तुचे प्रीव्युमधील नाव असे आहे : वर इंग्लिश नाव / खाली मराठी नाव</li>
+		<li>वस्तुची आपल्या लिस्टमध्ये निवड करण्याकरता वस्तुच्या नावावर क्लिक करुन खाली येणा-या रकान्यामध्ये योग्य माहीती भरा.</li>
+		<li>वस्तुचे नाव असे दिले आहे : इंग्लिश नाव * मराठी नाव * मराठी-इंग्लिश रुपांतर * इतर भाषेतील नाव</li>
+		<li>वस्तुची माहीती दिलेल्या रकान्यामध्ये अशी टाइप करा / निवडा : एकुण संख्या ‌‌‌| योग्य वजन/माप | इतर माहीती (गरज असल्यास)  </li>
 		</div><hr>
 		
 		<div class="form-row " id="vegetables">
@@ -59,12 +71,11 @@
       <table class="table table-responsive table-sm" style="margin:-20px 10px;">
         <tbody>
             <tr align="left" >	
-			<td rowspan="2" ><a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  ><img v-img :src="prod.imgurl" class="img" width="80px" /></a></td>	
+			<td rowspan="2" ><a class="fancybox-effects-c" :href="prod.imgurl"   :title="prod.ven+prod.vmtn"  ><img v-img :src="prod.imgurl" class="rounded-circle" width="55px"  height="55px" /></a></td>	
 			<td ><b> {{ prod.ven }} </b></td>		</tr>
             <tr align="left">	<td > <b> {{ prod.vmn }} </b></td>		</tr>
         </tbody>	
     </table> 
-	
 	<h5 style="float: right" data-bs-hover-animate="flash"> <i class="fa fa-edit"> </i> &nbsp;  </h5><br>
 	
   </summary>
@@ -80,9 +91,9 @@
                                             <table class="table table-bordered table-sm">
 											<tbody >
 													<tr>
-                                                         <td  width="5%" style="border:1px solid lightgray" > <img v-img :src="prod.imgurl" draggable="false" width="55px" />
+                                                         <td  width="5%" style="border:1px solid lightgray" > <img v-img :src="prod.imgurl" draggable="false" width="50px" />
 														 </td>
-                                                         <td  width="15%" style="border:1px solid lightgray" > <input type="number" min="0" max="1000" placeholder="Num"></td>
+                                                         <td  width="15%" style="border:1px solid lightgray" > <input type="number" min="0" max="1000" class="form-control form-control-sm" placeholder="Num"></td>
                                                         <td width="35%" style="border:1px solid lightgray">
 																<input list="wt" class="form-control form-control-sm" placeholder="Scale">
 																<datalist  name="wt" id="wt" >
